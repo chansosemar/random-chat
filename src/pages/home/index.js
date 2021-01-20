@@ -8,12 +8,9 @@ import {
 	Dimensions,
 	KeyboardAvoidingView,
 	Platform,
-	Keyboard,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
-const hp = Dimensions.get('window').height;
-const wp = Dimensions.get('window').width;
+import {hp, wp, fp} from '../../responsive';
 
 const Home = () => {
 	const [roomName, setRoomName] = useState();
@@ -21,18 +18,16 @@ const Home = () => {
 	const navigation = useNavigation();
 
 	const submit = () => {
-		if (roomName != null) {
+		if (roomName != null && roomName.length >= 4) {
 			navigation.navigate('Chat', {roomName});
 		} else {
-			setStatus('ROOM ID !!');
+			setStatus('4 DIGIT ROOM ID !!');
 		}
 	};
 
 	return (
-		<KeyboardAvoidingView
-			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-			style={styles.container}>
-			{status == 'ROOM ID !!' ? (
+		<KeyboardAvoidingView behavior="padding" style={styles.container}>
+			{status == '4 DIGIT ROOM ID !!' ? (
 				<Text style={styles.warning}>{status}</Text>
 			) : null}
 			<Text style={styles.title}>Random Chat</Text>
@@ -56,25 +51,25 @@ export default Home;
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 20,
+		padding: hp(2),
 		alignSelf: 'center',
 		justifyContent: 'center',
-		width: wp * 0.8,
-		height: hp,
+		width: wp(80),
+		height: hp(100),
 	},
 	formInput: {
 		borderWidth: 1,
 		borderColor: '#222',
 		borderRadius: 20,
-		paddingHorizontal: 20,
+		paddingHorizontal: wp(5),
 	},
 	btn: {
-		padding: 20,
-		marginVertical: 20,
+		padding: hp(2.5),
+		marginVertical: hp(2.5),
 		alignSelf: 'center',
 		alignItems: 'center',
 		backgroundColor: 'blue',
-		width: wp * 0.3,
+		width: wp(30),
 		borderRadius: 20,
 	},
 	txt: {
@@ -86,14 +81,14 @@ const styles = StyleSheet.create({
 		color: '#222',
 		fontWeight: 'bold',
 		alignSelf: 'center',
-		marginVertical: 20,
+		marginVertical: hp(2.5),
 	},
 	warning: {
 		fontSize: 20,
 		color: '#d72222',
 		fontWeight: 'bold',
 		alignSelf: 'center',
-		marginVertical: 20,
+		marginVertical: hp(2.5),
 	},
 });
 //

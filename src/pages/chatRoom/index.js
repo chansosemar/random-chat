@@ -104,7 +104,7 @@ export default ChatRoom;
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 20,
+		padding: hp(2),
 		flex: 1,
 	},
 	title: {
@@ -112,13 +112,13 @@ const styles = StyleSheet.create({
 		color: '#222',
 		fontWeight: 'bold',
 		alignSelf: 'center',
-		marginVertical: 20,
+		marginVertical: hp(2.5),
 	},
 	formInput: {
 		borderWidth: 1,
 		borderColor: '#222',
 		borderRadius: 20,
-		paddingHorizontal: 20,
+		paddingHorizontal: wp(5),
 		width: wp(90),
 	},
 	keyboardAvoid: {
@@ -128,19 +128,23 @@ const styles = StyleSheet.create({
 		backgroundColor: 'green',
 		color: '#fff',
 		fontSize: 18,
-		padding: 15,
-		marginVertical: 5,
+		padding: hp(2),
+		marginVertical: hp(1),
 		borderRadius: 10,
 		textAlign: 'right',
+		width:wp(50),
+		alignSelf:'flex-end'
 	},
 	msgClient: {
 		backgroundColor: 'blue',
 		color: '#fff',
 		fontSize: 18,
-		padding: 15,
-		marginVertical: 5,
+		padding: hp(2),
+		marginVertical: hp(1),
 		borderRadius: 10,
 		textAlign: 'left',
+		width:wp(50),
+		alignSelf:'flex-start'
 	},
 	send: {
 		position: 'absolute',
@@ -148,7 +152,7 @@ const styles = StyleSheet.create({
 		zIndex:1,
 		top:hp(1),
 		right:wp(5),
-		padding:10,
+		padding:hp(1),
 	},
 	txt:{
 		color: '#222',
